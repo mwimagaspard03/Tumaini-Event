@@ -270,37 +270,37 @@
                     <div class="heure">08h00 - 09h00</div>
                     <h3>Accueil & Installation</h3>
                     <p>Accueil des participants, remise des badges et installation dans la cour de l’Institut Bwindi.</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : ...</p>
                 </div>
                 <div class="activite-card">
                     <div class="heure">09h00 - 10h30</div>
                     <h3>Concours d’Éloquence</h3>
                     <p>L’art de convaincre et d’émouvoir. Les jeunes orateurs défendent leurs idées sur le thème "Jeunesse Consciente".</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : ....</p>
                 </div>
                 <div class="activite-card">
                     <div class="heure">10h30 - 12h00</div>
                     <h3>Poésie & Slam</h3>
                     <p>Scène ouverte aux mots qui frappent. Expression libre, rythme et émotions pour éveiller les consciences.</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : ...</p>
                 </div>
                 <div class="activite-card">
                     <div class="heure">12h00 - 13h30</div>
                     <h3>Génie en herbe</h3>
                     <p>Quiz de culture générale inter-établissements. Rapidité, savoir et esprit d’équipe pour décrocher la coupe.</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : .... </p>
                 </div>
                 <div class="activite-card">
                     <div class="heure">13h30 - 15h00</div>
                     <h3>Match de Football</h3>
                     <p>Rencontre amicale Tumaini vs Bwindi. Le fair-play et le talent sportif au service de la cohésion.</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : ... </p>
                 </div>
                 <div class="activite-card">
                     <div class="heure">15h00 - 16h30</div>
                     <h3>Discussion sur la Paix</h3>
                     <p>Cercle d’échange entre jeunes. Comment nous, jeunesse de Bukavu, pouvons devenir acteurs de paix au quotidien.</p>
-                    <p class="intervenant">Intervenant : À compléter</p>
+                    <p class="intervenant">Intervenant : ... </p>
                 </div>
             </div>
         </div>
@@ -319,7 +319,7 @@
                 
                 <div class="form-group">
                     <label for="nom">Nom complet *</label>
-                    <input type="text" id="nom" name="nom" required minlength="2" placeholder="Ex: Jean Dupont">
+                    <input type="text" id="nom" name="nom" required minlength="2" placeholder="Ex: GASPARD MWIMA">
                     <div class="error-text">Le nom doit contenir au moins 2 caractères</div>
                 </div>
                 <div class="form-group">
@@ -354,7 +354,7 @@
         <div class="container">
             <p><strong>Une question ?</strong> Contacte-nous au <a id="tel-contact" style="color:var(--vert-clair);"></a></p>
             <p class="sponsor">
-                Événement sponsorisé par <a id="lien-sponsor" target="_blank">Gaspard Mwima Mupila</a>
+                Événement accompagné par <a id="lien-sponsor" target="_blank">Gaspard Mwima Mupila</a>
             </p>
             <p style="margin-top:30px; opacity:0.6; font-size:0.9rem;">© 2026 Institut Tumaini & Institut Bwindi. Tous droits réservés.</p>
         </div>
@@ -395,7 +395,7 @@
         // 3. PARTAGE WHATSAPP
         // ============================================
         function partagerWhatsApp() {
-            const texte = `Viens à la Journée Culturelle "Jeunesse Consciente" le 30 Avril 2026 à l'Institut Bwindi ! Poésie, Éloquence, Foot et plus. Infos & inscription : ${CONFIG.urlSite}`;
+            const texte = `Viens à la Journée Culturelle "Jeunesse Consciente" le 30 Avril 2026 à l'Institut Bwindi ! Poésie, Éloquence, Foot et plus. Infos & inscription : https://tumaini-gaspardmw-event.netlify.app/`;
             const url = `https://wa.me/?text=${encodeURIComponent(texte)}`;
             window.open(url, '_blank');
         }
@@ -439,7 +439,7 @@
             
             // Auto-hide après 5 secondes
             if (type === 'success') {
-                setTimeout(() => alert.style.display = 'none', 5000);
+                setTimeout(() => alert.style.display = 'none', 3000);
             }
         }
 
@@ -476,7 +476,7 @@
                 showAlert(`🎉 Merci ${nom} ! Ton inscription est confirmée. Tu recevras plus d'infos sur WhatsApp.`, 'success');
                 
                 // Envoyer une confirmation WhatsApp automatique
-                const messageConfirmation = `Salut ${nom}, 🎉 Ton inscription à la Journée Culturelle "Jeunesse Consciente" est confirmée ! RDV le 30 Avril 2026 à 08h00 à l'Institut Bwindi. Pour plus d'infos : ${CONFIG.urlSite}`;
+                const messageConfirmation = `Salut ${nom}, 🎉 Ton inscription à la Journée Culturelle "Jeunesse Consciente" est confirmée ! RDV le 30 Avril 2026 à 08h00 à l'Institut Bwindi. Pour plus d'infos : https://tumaini-gaspardmw-event.netlify.app/  `;
                 window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(messageConfirmation)}`, '_blank');
                 
                 // Réinitialiser le formulaire
