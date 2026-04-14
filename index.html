@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journée Culturelle 2026 | Institut Tumaini & Bwindi</title>
+    <meta name="description" content="Jeunesse Consciente : Poésie, Éloquence, Génie en herbe, Football et Débat. 30 Avril 2026 à l'Institut Bwindi, Bukavu. Inscris-toi !">
+    
+    <!-- CONFIG RAPIDE : Modifie ici si besoin -->
+    <script>
+        const CONFIG = {
+            dateEvent: '2026-04-30T08:00:00', // Format YYYY-MM-DDTHH:MM:SS
+            lieu: 'GRHP+6W5 Institut Bwindi, Bukavu',
+            maps: 'https://maps.google.com/?q=GRHP+6W5+Institut+Bwindi,+Bukavu',
+            telPrincipal: '+243983316518', // MODIFIE ICI SI ÇA CHANGE
+            siteSponsor: 'https://mw-acad.netlify.com',
+            urlSite: 'http://tumaini-gaspardmw-event.netlify.com'
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --vert-fonce: #0d3b1e;
+            --vert-clair: #1f8a4c;
+            --rouge: #e10600;
+            --blanc: #ffffff;
+            --gris: #f5f5f5;
+        }
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html {scroll-behavior: smooth;}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gris);
+            color: #222;
+            line-height: 1.6;
+        }
+        .container {max-width: 1100px; margin: 0 auto; padding: 0 20px;}
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-rouge {background: var(--rouge); color: var(--blanc);}
+        .btn-rouge:hover {transform: scale(1.05); box-shadow: 0 5px 15px rgba(225,6,0,0.4);}
+        .btn-whatsapp {background: #25D366; color: var(--blanc);}
+        .btn-whatsapp:hover {background: #1ebe5d;}
+        
+        /* HEADER HERO */
+        .hero {
+            background: linear-gradient(rgba(13, 59, 30, 0.85), rgba(13, 59, 30, 0.95)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1986') center/cover;
+            color: var(--blanc);
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {font-size: 3rem; font-weight: 900; margin-bottom: 10px;}
+        .hero .theme {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(to bottom, var(--rouge), var(--vert-clair));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+        }
+        .hero .slogan {font-family: 'Dancing Script', cursive; font-size: 2rem; margin: 20px 0 40px;}
+        .instituts {font-size: 1.5rem; font-weight: 700; margin-bottom: 30px;}
+        .instituts .tumaini {color: var(--vert-clair);}
+        .instituts .bwindi {color: var(--rouge);}
+        
+        /* COMPTEUR */
+        #compte-a-rebours {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .temps {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+        .temps .chiffre {font-size: 2.5rem; font-weight: 900;}
+        .temps .label {font-size: 0.8rem; opacity: 0.8;}
+        
+        /* SECTIONS */
+        section {padding: 80px 0;}
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--vert-fonce);
+            margin-bottom: 50px;
+        }
+        .bg-vert {background: var(--vert-fonce); color: var(--blanc);}
+        .bg-vert h2 {color: var(--blanc);}
+        
+        /* PROGRAMME */
+        .programme {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .activite-card {
+            background: var(--blanc);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--vert-clair);
+        }
+        .activite-card:nth-child(even) {border-left-color: var(--rouge);}
+        .activite-card .heure {
+            background: var(--vert-fonce);
+            color: var(--blanc);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .activite-card h3 {color: var(--vert-fonce); margin-bottom: 10px;}
+        .activite-card .intervenant {font-style: italic; opacity: 0.7; margin-top: 10px;}
+        
+        /* FORMULAIRE */
+        .form-inscription {
+            background: var(--blanc);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-group {margin-bottom: 20px;}
+        .form-group label {display: block; font-weight: 600; margin-bottom: 8px; color: var(--vert-fonce);}
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-group input:focus {border-color: var(--vert-clair); outline: none;}
+        #message-form {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+            display: none;
+        }
+        
+        /* LIEU & FOOTER */
+        .infos-lieu {text-align: center;}
+        .infos-lieu .adresse {font-size: 1.3rem; font-weight: 700; margin: 20px 0;}
+        footer {
+            background: var(--vert-fonce);
+            color: var(--blanc);
+            text-align: center;
+            padding: 40px 0;
+        }
+        .sponsor {margin-top: 20px; opacity: 0.8;}
+        .sponsor a {color: var(--vert-clair); text-decoration: none;}
+        
+        /* ANIMATIONS */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .activite-card {animation: slideInUp 0.6s ease-out forwards;}
+        .activite-card:nth-child(1) {animation-delay: 0.1s;}
+        .activite-card:nth-child(2) {animation-delay: 0.2s;}
+        .activite-card:nth-child(3) {animation-delay: 0.3s;}
+        .activite-card:nth-child(4) {animation-delay: 0.4s;}
+        .activite-card:nth-child(5) {animation-delay: 0.5s;}
+        .activite-card:nth-child(6) {animation-delay: 0.6s;}
+        
+        /* FEEDBACK MESSAGES */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideInUp 0.3s ease-out;
+        }
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .form-group input.error {
+            border-color: var(--rouge) !important;
+            background: #ffe6e6;
+        }
+        .form-group .error-text {
+            color: var(--rouge);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        .form-group input.error ~ .error-text {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {font-size: 2rem;}
+            .hero .theme {font-size: 2.8rem;}
+            section {padding: 50px 0;}
+            #compte-a-rebours {gap: 10px;}
+            .temps {min-width: 65px; padding: 10px;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <div class="instituts">
+                <span class="tumaini">INSTITUT TUMAINI</span> & 
+                <span class="bwindi">INSTITUT BWINDI</span>
+            </div>
+            <h1>JOURNÉE CULTURELLE</h1>
+            <div class="theme">JEUNESSE<br>CONSCIENTE</div>
+            <p class="slogan">Ta voix compte. Ton talent brille. Ton avenir commence ici.</p>
+            
+            <div id="compte-a-rebours">
+                <div class="temps"><div class="chiffre" id="jours">00</div><div class="label">Jours</div></div>
+                <div class="temps"><div class="chiffre" id="heures">00</div><div class="label">Heures</div></div>
+                <div class="temps"><div class="chiffre" id="minutes">00</div><div class="label">Minutes</div></div>
+                <div class="temps"><div class="chiffre" id="secondes">00</div><div class="label">Secondes</div></div>
+            </div>
+            
+            <a href="#inscription" class="btn btn-rouge">Je m’inscris maintenant</a>
+            <button onclick="partagerWhatsApp()" class="btn btn-whatsapp" style="margin-left:10px;">
+                <i class="fab fa-whatsapp"></i> Partager
+            </button>
+        </div>
+    </header>
+
+    <!-- PROGRAMME -->
+    <section id="programme">
+        <div class="container">
+            <h2>Programme de la journée</h2>
+            <div class="programme">
+                <div class="activite-card">
+                    <div class="heure">08h00 - 09h00</div>
+                    <h3>Accueil & Installation</h3>
+                    <p>Accueil des participants, remise des badges et installation dans la cour de l’Institut Bwindi.</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+                <div class="activite-card">
+                    <div class="heure">09h00 - 10h30</div>
+                    <h3>Concours d’Éloquence</h3>
+                    <p>L’art de convaincre et d’émouvoir. Les jeunes orateurs défendent leurs idées sur le thème "Jeunesse Consciente".</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+                <div class="activite-card">
+                    <div class="heure">10h30 - 12h00</div>
+                    <h3>Poésie & Slam</h3>
+                    <p>Scène ouverte aux mots qui frappent. Expression libre, rythme et émotions pour éveiller les consciences.</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+                <div class="activite-card">
+                    <div class="heure">12h00 - 13h30</div>
+                    <h3>Génie en herbe</h3>
+                    <p>Quiz de culture générale inter-établissements. Rapidité, savoir et esprit d’équipe pour décrocher la coupe.</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+                <div class="activite-card">
+                    <div class="heure">13h30 - 15h00</div>
+                    <h3>Match de Football</h3>
+                    <p>Rencontre amicale Tumaini vs Bwindi. Le fair-play et le talent sportif au service de la cohésion.</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+                <div class="activite-card">
+                    <div class="heure">15h00 - 16h30</div>
+                    <h3>Discussion sur la Paix</h3>
+                    <p>Cercle d’échange entre jeunes. Comment nous, jeunesse de Bukavu, pouvons devenir acteurs de paix au quotidien.</p>
+                    <p class="intervenant">Intervenant : À compléter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSCRIPTION -->
+    <section id="inscription" class="bg-vert">
+        <div class="container">
+            <h2>Réserve ta place</h2>
+            <form class="form-inscription" id="formInscription" name="inscription" method="POST" netlify netlify-honeypot="bot-field">
+                <div style="display: none;">
+                    <input type="text" name="bot-field" />
+                </div>
+                
+                <div id="alertContainer"></div>
+                
+                <div class="form-group">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" id="nom" name="nom" required minlength="2" placeholder="Ex: Jean Dupont">
+                    <div class="error-text">Le nom doit contenir au moins 2 caractères</div>
+                </div>
+                <div class="form-group">
+                    <label for="ecole">École / Institution *</label>
+                    <input type="text" id="ecole" name="ecole" required minlength="2" placeholder="Ex: Institut Bwindi">
+                    <div class="error-text">Veuillez entrer le nom de votre école</div>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Numéro WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+243..." pattern="\+243\d{9}">
+                    <div class="error-text">Format: +243XXXXXXXXX (9 chiffres après +243)</div>
+                </div>
+                <button type="submit" class="btn btn-rouge" style="width:100%;">M’inscrire</button>
+                <div id="message-form"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- LIEU -->
+    <section id="lieu">
+        <div class="container infos-lieu">
+            <h2>Lieu de l’événement</h2>
+            <p class="adresse" id="adresse-lieu"></p>
+            <a id="lien-maps" target="_blank" class="btn btn-rouge">
+                <i class="fa-solid fa-location-dot"></i> Voir sur Google Maps
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p><strong>Une question ?</strong> Contacte-nous au <a id="tel-contact" style="color:var(--vert-clair);"></a></p>
+            <p class="sponsor">
+                Événement sponsorisé par <a id="lien-sponsor" target="_blank">Gaspard Mwima Mupila</a>
+            </p>
+            <p style="margin-top:30px; opacity:0.6; font-size:0.9rem;">© 2026 Institut Tumaini & Institut Bwindi. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // 1. REMPLIR LES INFOS DE CONFIG
+        // ============================================
+        document.getElementById('adresse-lieu').textContent = CONFIG.lieu;
+        document.getElementById('lien-maps').href = CONFIG.maps;
+        document.getElementById('tel-contact').textContent = CONFIG.telPrincipal;
+        document.getElementById('tel-contact').href = `tel:${CONFIG.telPrincipal}`;
+        document.getElementById('lien-sponsor').href = CONFIG.siteSponsor;
+
+        // ============================================
+        // 2. COMPTE À REBOURS AMÉLIORÉ
+        // ============================================
+        const dateCible = new Date(CONFIG.dateEvent).getTime();
+        const compte = setInterval(() => {
+            const maintenant = new Date().getTime();
+            const diff = dateCible - maintenant;
+            
+            if (diff < 0) {
+                clearInterval(compte);
+                const container = document.getElementById('compte-a-rebours');
+                container.innerHTML = '<div class="temps" style="width:100%; text-align:center;"><h3 style="color: var(--vert-clair); margin: 0;">✓ L\'événement est en cours !</h3></div>';
+                return;
+            }
+            
+            document.getElementById('jours').textContent = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
+            document.getElementById('heures').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+            document.getElementById('minutes').textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+            document.getElementById('secondes').textContent = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+        }, 1000);
+
+        // ============================================
+        // 3. PARTAGE WHATSAPP
+        // ============================================
+        function partagerWhatsApp() {
+            const texte = `Viens à la Journée Culturelle "Jeunesse Consciente" le 30 Avril 2026 à l'Institut Bwindi ! Poésie, Éloquence, Foot et plus. Infos & inscription : ${CONFIG.urlSite}`;
+            const url = `https://wa.me/?text=${encodeURIComponent(texte)}`;
+            window.open(url, '_blank');
+        }
+
+        // ============================================
+        // 4. VALIDATION DES DONNÉES
+        // ============================================
+        const validators = {
+            nom: (val) => val.trim().length >= 2,
+            ecole: (val) => val.trim().length >= 2,
+            whatsapp: (val) => /^\+243\d{9}$/.test(val.trim())
+        };
+
+        function validationField(fieldId, fieldName) {
+            const input = document.getElementById(fieldId);
+            if (!validators[fieldName](input.value)) {
+                input.classList.add('error');
+                return false;
+            } else {
+                input.classList.remove('error');
+                return true;
+            }
+        }
+
+        // Validation en temps réel
+        document.getElementById('nom').addEventListener('blur', () => validationField('nom', 'nom'));
+        document.getElementById('ecole').addEventListener('blur', () => validationField('ecole', 'ecole'));
+        document.getElementById('whatsapp').addEventListener('blur', () => validationField('whatsapp', 'whatsapp'));
+
+        // ============================================
+        // 5. AFFICHER LES ALERTES
+        // ============================================
+        function showAlert(message, type = 'success') {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.style.display = 'block';
+            container.innerHTML = '';
+            container.appendChild(alert);
+            
+            // Auto-hide après 5 secondes
+            if (type === 'success') {
+                setTimeout(() => alert.style.display = 'none', 5000);
+            }
+        }
+
+        // ============================================
+        // 6. FORMULAIRE D'INSCRIPTION
+        // ============================================
+        document.getElementById('formInscription').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation de tous les champs
+            const isNomValid = validationField('nom', 'nom');
+            const isEcoleValid = validationField('ecole', 'ecole');
+            const isWhatsappValid = validationField('whatsapp', 'whatsapp');
+            
+            if (!isNomValid || !isEcoleValid || !isWhatsappValid) {
+                showAlert('❌ Veuillez corriger les erreurs avant de soumettre.', 'error');
+                return;
+            }
+            
+            const nom = document.getElementById('nom').value.trim();
+            const ecole = document.getElementById('ecole').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            
+            // Désactiver le bouton pour éviter les doubles clics
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Inscription en cours...';
+            
+            // Remarque: Netlify va traiter automatiquement la soumission
+            // grâce aux attributs netlify et name="inscription" du formulaire
+            
+            // Après soumission Netlify, afficher une confirmation
+            setTimeout(() => {
+                showAlert(`🎉 Merci ${nom} ! Ton inscription est confirmée. Tu recevras plus d'infos sur WhatsApp.`, 'success');
+                
+                // Envoyer une confirmation WhatsApp automatique
+                const messageConfirmation = `Salut ${nom}, 🎉 Ton inscription à la Journée Culturelle "Jeunesse Consciente" est confirmée ! RDV le 30 Avril 2026 à 08h00 à l'Institut Bwindi. Pour plus d'infos : ${CONFIG.urlSite}`;
+                window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(messageConfirmation)}`, '_blank');
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'M\'inscrire';
+                
+                // Auto-scroll vers le bas pour voir la confirmation
+                setTimeout(() => {
+                    document.getElementById('alertContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 500);
+            }, 1000);
+            
+            // Log pour debug
+            console.log('✓ Inscription enregistrée:', {nom, ecole, whatsapp, timestamp: new Date().toISOString()});
+        });
+
+        // ============================================
+        // 7. SMOOTH SCROLL POUR LES LIENS INTERNES
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================
+        // 8. AMÉLIORER UX MOBILE
+        // ============================================
+        if (window.innerWidth <= 768) {
+            document.body.style.fontSize = 'max(16px, 1rem)'; // Éviter le zoom automatique iOS
+        }
+    </script>
+</body>
+</html>
